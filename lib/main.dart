@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_todo/AddGame.dart';
+import 'package:flutter_todo/SignIn.dart';
 import 'package:flutter_todo/homeScreen.dart';
 
 import 'DetailScreen.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.red,
       ),
-      home: const AddGame(),
+      home: const HomeScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
