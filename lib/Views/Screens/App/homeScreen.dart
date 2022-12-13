@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_todo/GridTileWidget.dart';
+import 'package:flutter_todo/Controllers/ApiManager.dart';
+import 'package:flutter_todo/Views/Widgets/GridTileWidget.dart';
 
-import 'GameModel.dart';
-import 'cell.dart';
+import '../../../Models/GameModel.dart';
+import '../../Widgets/cell.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -34,19 +33,20 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            title: const Text(
-          "G-Store Esprit",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        )),
-        body: GridView.count(
-            crossAxisCount: 2,
-            crossAxisSpacing: 3.0,
-            mainAxisSpacing: 5.0,
-            children: List.generate(games.length, (index) {
-              return Center(
-                child: GridTileWidget(games[index]),
-              );
-            })));
+      body:
+
+          /*GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2),
+                itemBuilder: ((context, index) {
+                  return GridTileWidget(games[index]);
+                }))
+                */
+          ListView.builder(
+              itemCount: games.length,
+              itemBuilder: (context, index) {
+                return Cell(games[index]);
+              }),
+    );
   }
 }
